@@ -10,10 +10,10 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4
-    - name: setup node
+    - name: setup-node
       uses: actions/setup-node@v3
       with:
-          node-version: '18'
+          node-version: 18
     - name: cache node.js module
       uses: actions/cache@v3
       with:
