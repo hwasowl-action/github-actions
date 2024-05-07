@@ -5,15 +5,15 @@ jobs:
   create-output:
     runs-on: ubuntu-latest
     outputs:
-      test-key: ${{ steps.check-output.outputs.test }}
+      mykey: ${{ steps.check-output.outputs.mykey }}
     steps:
       - name: echo output
         id: check-output
         run: |
-          echo "test-key=hello" >> $GITHUB_OUTPUT
+          echo "mykey=hello" >> $GITHUB_OUTPUT
       - name: name check
         run: |
-          echo ${{ steps.check-output.outputs.test }}
+          echo ${{ steps.check-output.outputs.mykey }}
 
   get-output:
     runs-on: ubuntu-latest
@@ -21,4 +21,4 @@ jobs:
     steps:
       - name: get output
         run: |
-          echo ${{ needs.create-output.outputs.test-key }}
+          echo ${{ needs.create-output.outputs.mykey }}
