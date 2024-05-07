@@ -7,7 +7,7 @@ on:
         required: true
         default: 'github-actions'
         type: string
-    environment:
+      environment:
         description: 'set end'
         required: true
         default: 'dev'
