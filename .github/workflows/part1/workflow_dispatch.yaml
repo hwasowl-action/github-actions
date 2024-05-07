@@ -8,7 +8,7 @@ on:
         default: 'github-actions'
         type: string
       environment:
-        description: 'set end'
+        description: 'set env'
         required: true
         default: 'dev'
         type: choice
