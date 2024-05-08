@@ -4,6 +4,9 @@ on: push
 env:
   level: workflow
 
+# 우선 순위
+# step > job > workflow
+
 jobs:
   get-env-1:
     runs-on: ubuntu-latest
