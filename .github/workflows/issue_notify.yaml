@@ -30,7 +30,10 @@ jobs:
     needs: [get-keyword]
     if: needs.gey-keyword.outputs.level != 'Undefined' # 성공했지만 유효한 keyword 일 때만 실행
     runs-on: ubuntu-latest
-    environment: ${{ needs.get-keyword.outputs.level }} # keyword 에 따라 environment 에서 다른 웹훅 채널 URL 을 가져오도록
+#    environment: ${{ needs.get-keyword.outputs.level }} # keyword 에 따라 environment 에서 다른 웹훅 채널 URL 을 가져오도록
+    strategy:
+        matrix:
+            level: ["${{ needs.get-keyword.outputs.level }}"]
     steps:
       - name: slack
         uses: slackapi/slack-github-action@v1.24.0
