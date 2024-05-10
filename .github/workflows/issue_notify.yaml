@@ -12,16 +12,16 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4 # 텍스트 파일 접근을 위해 checkout
-      - name: get keyword
+      - name: get-keyword
         id: get-keyword
         run: | # 텍스트 값을 순회하며 일치하는 키워드를 지정
           echo level=Undefined >> $GITHUB_OUTPUT
           
           keywords=$(cat keyword-list.txt)
           for keyword in $keywords; do
-            if [[ ${{ github.event.issue.title }} =~ "$keyword" ]]; then
-              echo "level=$keyword" >> $GITHUB_OUTPUT
-            fi
+          if [[ "${{ github.event.issue.title }}" =~ "$keyword" ]]; then
+          echo level=$keyword >> $GITHUB_OUTPUT
+          fi
           done
       - name: get output
         run: |
