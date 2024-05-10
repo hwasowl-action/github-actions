@@ -44,6 +44,7 @@ jobs:
                       "value": "${{ inputs.prefix }}-${{ inputs.name }}"
                     }
                   ]
+                }
               ]
             }
         env:
